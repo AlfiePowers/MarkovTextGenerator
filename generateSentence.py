@@ -6,7 +6,7 @@ import random
 def make_dictionary():
     # Get all of the different words
     text = list()
-    with open('text.txt', 'r') as f:
+    with open('trainingData/text.txt', 'r') as f:
         for line in f:
             words = list()
             for word in line.split():
@@ -40,11 +40,11 @@ def make_dictionary():
             else:
                 add_to_dict(l[w], l[w + 1])
 
-    np.save('dictionary.npy', dictionary)
+    np.save('output/dictionary.npy', dictionary)
 
 
 def generate_sentence():
-    read_dictionary = np.load('dictionary.npy').item()
+    read_dictionary = np.load('output/dictionary.npy').item()
 
     def get_next_word(previous, sentence):
 
